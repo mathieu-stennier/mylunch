@@ -1,3 +1,4 @@
+
 #Welcome to my lunch!
 
 This application is just the best application for lunch matching the ingredients in your fridge! 
@@ -26,13 +27,14 @@ $ docker build -t mylunch .
 $ docker run -p 8080:8080 mylunch
 ```
 
-### Docker `build run`
+### Docker `pull`
 
 ```
-$ mvn clean package
-$ docker build -t mylunch .
+$ docker pull mathieustennier/mylunch
 $ docker run -p 8080:8080 mylunch
 ```
+
+
 
 ## Implementation Discussions
 
