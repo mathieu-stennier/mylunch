@@ -52,6 +52,8 @@ $ docker run -p 8080:8080 mylunch
     - How many calls will be done towards `/lunch`
     - ...
     I would strongly recommend to cache those data at the repository layer and to perform that call only when we really need it.
+- `TODO` **Security:** The Http calls in the repositories are voluntary called without HTTPS. I think the webclient should be implemented with a 
+    proper TrustStore. 
 - `TODO` **Exceptions:** I tend to avoid verbose exception handling and rethrow unchecked RuntimeException. I prefer when the callee provides
     information about the exception it could raise (the one that he expects). Clearly not a lot of error handling was done properly
     here and we need to return **at least** a proper 500 if something goes wrong. For the purpose of this small task 
