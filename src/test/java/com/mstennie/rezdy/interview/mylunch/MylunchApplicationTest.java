@@ -22,7 +22,7 @@ public class MylunchApplicationTest {
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnStatusCode200WhenInvokingLunchEndpoint() throws Exception {
+    public void shouldReturnCorrectRecipes() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/lunch"))
                 .andExpect(status().isOk())
                 .andExpect(content()

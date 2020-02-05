@@ -2,6 +2,9 @@ package com.mstennie.rezdy.interview.mylunch.model.ingredient;
 
 import java.time.LocalDate;
 
+/**
+ * Represent the instance of one Ingredient with its own information. an "orange that expires in 2 days"
+ */
 public class IngredientInstance {
     private Ingredient ingredient;
     private LocalDate bestBefore;

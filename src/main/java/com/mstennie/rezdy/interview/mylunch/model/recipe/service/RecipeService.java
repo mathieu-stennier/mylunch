@@ -5,6 +5,9 @@ import com.mstennie.rezdy.interview.mylunch.model.recipe.Recipe;
 
 import java.util.List;
 
+/**
+ * The RecipeService provides all sorts of methods around dealing with Recipes.
+ */
 public interface RecipeService {
 
     /**

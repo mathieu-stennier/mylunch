@@ -2,6 +2,9 @@ package com.mstennie.rezdy.interview.mylunch.model.ingredient;
 
 import java.util.Objects;
 
+/**
+ * Represent one Ingredient in its general form. an "orange", "salt",...
+ */
 public class Ingredient {
     private String name;
 

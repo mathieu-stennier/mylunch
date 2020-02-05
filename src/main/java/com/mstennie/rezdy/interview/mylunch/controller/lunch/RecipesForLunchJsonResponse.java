@@ -8,6 +8,9 @@ import com.mstennie.rezdy.interview.mylunch.model.recipe.repository.RecipeJsonRe
 
 import java.util.List;
 
+/**
+ * This class represents the Json object to return from the /lunch endpoint.
+ */
 public class RecipesForLunchJsonResponse {
 
     @JsonIgnore

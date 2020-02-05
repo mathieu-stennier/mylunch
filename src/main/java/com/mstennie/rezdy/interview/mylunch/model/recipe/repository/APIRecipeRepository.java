@@ -15,21 +15,33 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * This implementation of RecipeRepository will get the recipes
+ * from an API call to an URL defined in our application properties.
+ */
+
 @Repository
 public class APIRecipeRepository implements RecipeRepository{
 
     private WebClient recipesClient;
+    private String endpointUrl;
 
     public APIRecipeRepository(@Value("${api.reciperepository.url}") String url) {
+        this.endpointUrl = url;
         recipesClient = WebClient.builder().baseUrl(url).build();
     }
 
     @Override
     public List<Recipe> getAllRecipes() {
-        RecipeJsonResponse[] recipeJsonResponse = recipesClient.get()
-                .retrieve()
-                .bodyToMono(JsonNode.class)
-                .map(jsonNode -> JsonMapper.asArray(jsonNode.at("/recipes"), RecipeJsonResponse[].class)).block();
+        RecipeJsonResponse[] recipeJsonResponse;
+        try {
+            recipeJsonResponse = recipesClient.get()
+                    .retrieve()
+                    .bodyToMono(JsonNode.class)
+                    .map(jsonNode -> JsonMapper.asArray(jsonNode.at("/recipes"), RecipeJsonResponse[].class)).block();
+        } catch (Exception e) {
+            throw new RepositoryNotAvailableException(String.format("Something went wrong calling the endpoint '%s'", endpointUrl), e);
+        }
 
         if (recipeJsonResponse == null) {
             throw new RuntimeException("Unknown error while retrieving recipes from server.");

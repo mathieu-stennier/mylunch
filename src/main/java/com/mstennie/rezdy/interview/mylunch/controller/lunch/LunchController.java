@@ -12,6 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * LunchController will manage the /lunch endpoint
+ *
+ * This endpoint has the following features:
+ *
+ * ● GIVEN that I am an API client AND have made a ​GET​ request to the ​/lunch​ endpoint THEN I should receive a
+ *      JSON response of the recipes that I can prepare based on the availability of the ingredients in my fridge
+ * ● GIVEN that I am an API client AND I have made a ​GET​ request to the ​/lunch​ endpoint AND an ingredient is past
+ *      its ​use-by​ date THEN I should not receive any recipes containing this ingredient
+ * ● GIVEN that I am an API client AND I have made a ​GET​ request to the endpoint AND an ingredient is past its
+ *     ​best-before​ date AND is still within its date THEN any recipe containing this ingredient should be sorted to the bottom of the JSON response object
+ *
+ */
+
 @RestController
 public class LunchController {
 

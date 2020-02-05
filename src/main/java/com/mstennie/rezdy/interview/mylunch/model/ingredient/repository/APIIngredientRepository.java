@@ -11,6 +11,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This implementation of IngredientRepository will get the ingredients instances
+ * from an API call to an URL defined in our application properties.
+ */
+
 @Repository
 public class APIIngredientRepository implements IngredientRepository {
     private WebClient ingredientsClient;
